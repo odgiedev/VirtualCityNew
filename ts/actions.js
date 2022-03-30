@@ -1,6 +1,3 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-
 class Action {
     static walk(name) {
         return name + ' is walking...';
@@ -37,12 +34,12 @@ class Action {
     }
     static makeid(length) {
         var result = '';
-        var characters = 'abcdefghijklmnopqrstuvwxyz0123456789!';
+        var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!';
         for (var i = 0; i < length; i++) {
             result += characters.charAt(Math.floor(Math.random() * characters.length));
         }
         return result;
     }
 }
-
-export {Action};
+;
+export { Action };

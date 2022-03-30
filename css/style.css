@@ -1,0 +1,15 @@
+#greenB {
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%; 
+    background-color: #03fc03;
+}
+
+#redB {
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%; 
+    background-color: #fc0303;
+}

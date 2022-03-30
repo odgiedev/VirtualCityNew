@@ -1,15 +1,17 @@
-import {Action} from "./actions";
+import {Action} from "./actions.js";
+
+type getById = HTMLElement | null;
 
 //html
-var el = document.getElementById('terminal');
-var pCreate = document.createElement('p');
-var p = document.getElementsByTagName('p'); 
-var sleepGet = document.getElementById('sleep');
-var awakeGet = document.getElementById('awake');
+const el:getById = document.getElementById('terminal');
+const pCreate:HTMLParagraphElement = document.createElement('p');
+const p:HTMLCollectionOf<HTMLParagraphElement> = document.getElementsByTagName('p'); 
+const sleepGet:getById = document.getElementById('sleep');
+const awakeGet:getById = document.getElementById('awake');
 
 //js
-var acts:string[];
-var actions_methods = [
+const acts:string[] = [];
+const actions_methods = [
     Action.walk,
     Action.talk,
     Action.sleep,
@@ -22,16 +24,16 @@ var actions_methods = [
     Action.hackAttack,
     Action.hackDefend,
 ];
-var awake = 50;
-var sleep = 50;
+let awake:number = 50;
+let sleep:number = 50;
 
-function showtext(el:HTMLElement) { 
-    setInterval(function () {
-        el.appendChild(pCreate);
+function showtext(el:getById) { 
+    setInterval(function():void {
+        el!.appendChild(pCreate);
     
-        var random = Math.floor(Math.random() * actions_methods.length);
+        const random:number = Math.floor(Math.random() * actions_methods.length);
         
-        var act = actions_methods[random]('0x' + Action.makeid(8));
+        const act:string = actions_methods[random]('0x' + Action.makeid(8));
         
         if(actions_methods[random] == actions_methods[2]) {
             sleepGet!.innerHTML = String(sleep += 1);
@@ -53,7 +55,7 @@ function showtext(el:HTMLElement) {
         
         p[0].innerHTML = String(acts);
 
-        if(acts.length >= 12) {
+        if(acts.length >= 13) {
             acts.shift();
         }
 

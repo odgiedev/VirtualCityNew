@@ -1,15 +1,13 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-import {Action} from "./actions.js";
+import { Action } from "./actions.js";
 //html
-var el = document.getElementById('terminal');
-var pCreate = document.createElement('p');
-var p = document.getElementsByTagName('p');
-var sleepGet = document.getElementById('sleep');
-var awakeGet = document.getElementById('awake');
+const el = document.getElementById('terminal');
+const pCreate = document.createElement('p');
+const p = document.getElementsByTagName('p');
+const sleepGet = document.getElementById('sleep');
+const awakeGet = document.getElementById('awake');
 //js
-var acts=[];
-var actions_methods = [
+const acts = [];
+const actions_methods = [
     Action.walk,
     Action.talk,
     Action.sleep,
@@ -22,13 +20,13 @@ var actions_methods = [
     Action.hackAttack,
     Action.hackDefend,
 ];
-var awake = 50;
-var sleep = 50;
+let awake = 50;
+let sleep = 50;
 function showtext(el) {
     setInterval(function () {
         el.appendChild(pCreate);
-        var random = Math.floor(Math.random() * actions_methods.length);
-        var act = actions_methods[random]('0x' + Action.makeid(8));
+        const random = Math.floor(Math.random() * actions_methods.length);
+        const act = actions_methods[random]('0x' + Action.makeid(8));
         if (actions_methods[random] == actions_methods[2]) {
             sleepGet.innerHTML = String(sleep += 1);
             if (awake >= 1) {
@@ -43,7 +41,7 @@ function showtext(el) {
         }
         acts.push(act + '<br/>');
         p[0].innerHTML = String(acts);
-        if (acts.length >= 12) {
+        if (acts.length >= 13) {
             acts.shift();
         }
     }, 500);
